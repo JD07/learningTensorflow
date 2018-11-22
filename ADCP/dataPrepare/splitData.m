@@ -3,7 +3,7 @@
 clear all;clc;
 %%
 %ÏÈ¶ÁÊı¾İ
-maxIter=3;
+maxIter=6;
 A=[];B=[];
 for iter=1:maxIter
    load(['result',num2str(iter),'.mat']);
@@ -20,11 +20,11 @@ B_new=B(randIndex,:);
 %%
 clear A B
 threshold=0.9;
-data1=A_new(1:threshold*size(A_new,1),:);
-data2=A_new(threshold*size(A_new,1)+1:size(A_new,1),:);
-save("train_data1", 'data1');
-save("test_data1",'data2');
-tag1=B_new(1:threshold*size(B_new,1),:);
-tag2=B_new(threshold*size(B_new,1)+1:size(B_new,1),:);
-save("train_tag1",'tag1');
-save("test_tag1",'tag2');
+data=A_new(1:threshold*size(A_new,1),:);
+save("train_data", 'data');
+data=A_new(threshold*size(A_new,1)+1:size(A_new,1),:);
+save("test_data",'data');
+tag=B_new(1:threshold*size(B_new,1),:);
+save("train_tag",'tag');
+tag=B_new(threshold*size(B_new,1)+1:size(B_new,1),:);
+save("test_tag",'tag');

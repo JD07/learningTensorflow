@@ -4,7 +4,7 @@ clear all;clc;
 %ÏÈ¶ÁÊý¾Ý
 maxIter=3;
 
-for index=1:maxIter
+for index=maxIter+1:2*maxIter
    load(['result',num2str(index),'.mat']);
    load(['tag',num2str(index),'.mat']);
    elpsetMF=flip(elpsetMF,2);
