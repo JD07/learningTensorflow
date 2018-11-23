@@ -3,7 +3,7 @@
 clear all;clc;
 %%
 %先读数据
-maxIter=6;
+maxIter=3;
 A=[];B=[];
 for iter=1:maxIter
    load(['result',num2str(iter),'.mat']);
@@ -11,6 +11,7 @@ for iter=1:maxIter
    A=[A;elpsetMF];
    B=[B;tagMF];
 end
+clear elpsetMF tagMF
 %%
 %生产随机种子
 randIndex = randperm(size(A,1));
@@ -24,7 +25,7 @@ data=A_new(1:threshold*size(A_new,1),:);
 save("train_data", 'data');
 data=A_new(threshold*size(A_new,1)+1:size(A_new,1),:);
 save("test_data",'data');
-tag=B_new(1:threshold*size(B_new,1),:);
+tag=B_new(1:threshold*size(B_new,1),2:2:40);
 save("train_tag",'tag');
-tag=B_new(threshold*size(B_new,1)+1:size(B_new,1),:);
+tag=B_new(threshold*size(B_new,1)+1:size(B_new,1),2:2:40);
 save("test_tag",'tag');
